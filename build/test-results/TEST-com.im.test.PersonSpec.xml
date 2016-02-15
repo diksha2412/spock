@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.im.test.PersonSpec" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-02-15T04:39:34" hostname="diksha-TravelMate-P257-M" time="0.04">
+  <properties/>
+  <testcase name="First test" classname="com.im.test.PersonSpec" time="0.04"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

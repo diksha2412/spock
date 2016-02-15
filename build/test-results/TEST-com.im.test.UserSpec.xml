@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.im.test.UserSpec" tests="13" skipped="8" failures="0" errors="0" timestamp="2016-02-15T04:39:34" hostname="diksha-TravelMate-P257-M" time="0.08">
+  <properties/>
+  <testcase name="First test" classname="com.im.test.UserSpec" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="1" classname="com.im.test.UserSpec" time="0.063"/>
+  <testcase name="2" classname="com.im.test.UserSpec" time="0.001"/>
+  <testcase name="3" classname="com.im.test.UserSpec" time="0.0"/>
+  <testcase name="4" classname="com.im.test.UserSpec" time="0.001"/>
+  <testcase name="5" classname="com.im.test.UserSpec" time="0.0"/>
+  <testcase name="display Name" classname="com.im.test.UserSpec" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="is valid password" classname="com.im.test.UserSpec" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="mocking encrypt password" classname="com.im.test.UserSpec" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="reset password and send email" classname="com.im.test.UserSpec" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Getting user income group when #incomePerMonth" classname="com.im.test.UserSpec" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Product purchased" classname="com.im.test.UserSpec" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Cancel purchase" classname="com.im.test.UserSpec" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

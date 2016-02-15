@@ -36,7 +36,7 @@ class User {
         String newPassword = "dummy"
         this.password = encyryptPassword(newPassword)
         emailService.sendCancellationEmail(this, newPassword)
-
+        this.password
     }
 
     String encyryptPassword(String pwd) {
@@ -52,10 +52,10 @@ class User {
         String group
         if (this.incomePerMonth <= 5000) {
             group = "MiddleClass"
-        } else if (incomePerMonth > 5000 && incomePerMonth <= 1000) {
+        } else if (incomePerMonth > 5000 && incomePerMonth <= 10000) {
             group = "Higher MiddleClass"
         } else if (incomePerMonth > 10000) {
-            group = "Higher MiddleClass"
+            group = "Higher Class"
         }
         return group
     }

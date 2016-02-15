@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.im.test.TransactionSpec" tests="7" skipped="0" failures="0" errors="0" timestamp="2016-02-15T04:39:34" hostname="diksha-TravelMate-P257-M" time="0.041">
+  <properties/>
+  <testcase name="Sell subtracts the balance of a user by the price of the product and adds product to the purchased products" classname="com.im.test.TransactionSpec" time="0.028"/>
+  <testcase name="Improvement #1 Sell subtracts the balance of a user by the price of the product and adds product to the purchased products" classname="com.im.test.TransactionSpec" time="0.001"/>
+  <testcase name="Improved #2 Sell subtracts the balance of a user by the price of the product and adds product to the purchased products" classname="com.im.test.TransactionSpec" time="0.0"/>
+  <testcase name="An exception is thrown if user's balance is not enough" classname="com.im.test.TransactionSpec" time="0.008"/>
+  <testcase name="Improvement #1 An exception is thrown if user's balance is not enough" classname="com.im.test.TransactionSpec" time="0.001"/>
+  <testcase name="An exception is thrown when less than product cost" classname="com.im.test.TransactionSpec" time="0.0"/>
+  <testcase name="An exception is thrown when user has no balance" classname="com.im.test.TransactionSpec" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,6 +1,8 @@
 package com.im.test
 
-class PersonSpec extends spock.lang.Specification {
+import spock.lang.Specification
+
+class PersonSpec extends Specification {
     void "First test"(){
         expect:
         true
