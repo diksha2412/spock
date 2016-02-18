@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.im.test.UserSpec" tests="13" skipped="8" failures="0" errors="0" timestamp="2016-02-15T04:39:34" hostname="diksha-TravelMate-P257-M" time="0.08">
+<testsuite name="com.im.test.UserSpec" tests="13" skipped="8" failures="0" errors="0" timestamp="2016-02-16T16:07:01" hostname="diksha-TravelMate-P257-M" time="0.114">
   <properties/>
   <testcase name="First test" classname="com.im.test.UserSpec" time="0.0">
     <skipped/>
   </testcase>
-  <testcase name="1" classname="com.im.test.UserSpec" time="0.063"/>
-  <testcase name="2" classname="com.im.test.UserSpec" time="0.001"/>
+  <testcase name="1" classname="com.im.test.UserSpec" time="0.093"/>
+  <testcase name="2" classname="com.im.test.UserSpec" time="0.0"/>
   <testcase name="3" classname="com.im.test.UserSpec" time="0.0"/>
   <testcase name="4" classname="com.im.test.UserSpec" time="0.001"/>
   <testcase name="5" classname="com.im.test.UserSpec" time="0.0"/>
@@ -15,7 +15,7 @@
   <testcase name="is valid password" classname="com.im.test.UserSpec" time="0.0">
     <skipped/>
   </testcase>
-  <testcase name="mocking encrypt password" classname="com.im.test.UserSpec" time="0.001">
+  <testcase name="mocking encrypt password" classname="com.im.test.UserSpec" time="0.0">
     <skipped/>
   </testcase>
   <testcase name="reset password and send email" classname="com.im.test.UserSpec" time="0.0">

@@ -6,106 +6,98 @@ import spock.lang.Unroll
 
 class TransactionSpec extends Specification {
 
-    @Shared transaction = new Transaction()
+    @Unroll("#sno")
+   def "testing sell when no exception is thrown"(){
+       given:"a product"
+       Product product=new Product(price: price)
 
-    void "Sell subtracts the balance of a user by the price of the product and adds product to the purchased products"(){
-        setup:
-        Product product = new Product(price: 100)
-        User user = new User(balance: 200)
+       and:"a user"
+       User user=new User(balance: balance)
 
-        when:
+       and:"a transaction"
+       Transaction transaction=new Transaction()
+
+       when:"sell() is called"
+       transaction.sell(product, user)
+
+       then:
+       output==balance-price
+
+       where:
+       sno | balance | price | output
+       1   | 200     | 100   | 100
+       2   | 100     | 100   | 0
+   }
+
+    def "testing sell() when exceptiion is thrown"(){
+        given:"a product"
+        Product product=new Product(price: 100)
+
+        and:"a user"
+        User user=new User(balance: 50)
+
+        and:"a transaction"
+        Transaction transaction=new Transaction()
+
+        when:"sell() is called"
         transaction.sell(product, user)
 
-        then:
-        user.balance ==  100.toBigDecimal()
+        then:"exception is thrown"
+        def e=thrown(SaleException)
+        e.message=="Not enough account balance"
     }
 
+    def "cancellation of sale"() {
 
-    void "Improvement #1 Sell subtracts the balance of a user by the price of the product and adds product to the purchased products"(){
         given:
-        Product product = new Product(price: 100)
+        Product product = new Product(name: name, price: price)
 
         and:
-        User user = new User(balance: 200)
-
-        when:
-        transaction.sell(product, user)
-
-        then:
-        user.balance ==  100.toBigDecimal()
-    }
-
-
-    void "Improved #2 Sell subtracts the balance of a user by the price of the product and adds product to the purchased products"(){
-        given:
-        Product product = new Product(price: 100)
+        User user = new User(balance: bal)
 
         and:
-        User user = new User(balance: 200)
-
-        expect:
-        !user.isPrivellegedCustomer
-        product.discountType == DiscountType.NONE
-
-        when:
-        transaction.sell(product, user)
-
-        then:
-        user.balance ==  100.toBigDecimal()
-    }
-
-
-    void "An exception is thrown if user's balance is not enough"(){
-        given:
-        Product product = new Product(price: 100)
+        Transaction transaction = new Transaction()
 
         and:
-        User user = new User(balance: 50)
+        def mockedEmailService = Mock(EmailService)
+        transaction.emailService = mockedEmailService
 
         when:
-        transaction.sell(product, user)
+        transaction.cancelSale(product, user)
 
         then:
-        def e =thrown(SaleException)
-        e.message == "Not enough account balance"
-    }
-
-    void "Improvement #1 An exception is thrown if user's balance is not enough"(){
-        given:
-        Product product = new Product(price: 100)
-
-        and:
-        User user = new User(balance: balance)
-
-        when:
-        transaction.sell(product, user)
-
-        then:
-        def e =thrown(SaleException)
-        e.message == "Not enough account balance"
+        mockedEmailService.sendCancellationEmail(user, _ as String)
 
         where:
-        balance << [50, 0]
+        name  | price | bal  || output
+        "xyz" | 500   | 1000 || true
     }
 
-    @Unroll("An exception is thrown when #description")
-    void "Improvement #2 An exception is thrown if user's balance is not enough"(){
-        given:
-        Product product = new Product(price: 100)
 
-        and:
-        User user = new User(balance: balance)
+    @Unroll("#sno")
+    def "testing calculate discount"(){
+        given:"a product"
+        Product product=new Product(discountType: discountType, price: 300)
 
-        when:
-        transaction.sell(product, user)
+        and:"a user"
+        User user=new User(isPrivellegedCustomer: isPrivellegedCustomer)
+
+        and:"a transaction"
+        Transaction transaction=new Transaction()
+
+        when:"method is called"
+        BigDecimal discount=transaction.calculateDiscount(product, user)
 
         then:
-        def e =thrown(SaleException)
-        e.message == "Not enough account balance"
+        output==discount
 
         where:
-        balance << [50, 0]
-
-        description = balance==50?'less than product cost': 'user has no balance'
+        sno | discountType                   | isPrivellegedCustomer | output
+        1   | DiscountType.NONE            | true                  | 0
+        2   | DiscountType.NONE            | false                 | 0
+        3   | DiscountType.PRIVELLEGE_ONLY | true                  | 90
+        4   | DiscountType.PRIVELLEGE_ONLY | false                 | 30
     }
+
+
 }
